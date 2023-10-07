@@ -1,3 +1,4 @@
+import CurrencyInput from '@/components/CurrencyInput';
 import DatePicker from '@/components/DatePicker';
 import Input from '@/components/Input';
 import React from 'react'
@@ -13,6 +14,7 @@ function TripSearch() {
 
         <div className='flex gap-4'>
           <DatePicker placeholderText='Data de ida' onChange={() =>{}} className='w-full'/>
+          <CurrencyInput placeholder='Orçamento'/>
 
         </div>
       </div>
