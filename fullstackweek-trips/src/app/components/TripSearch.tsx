@@ -6,7 +6,7 @@ import React from 'react'
 
 function TripSearch() {
   return (
-    <div className="container mx-auto p-5">
+    <div className="container mx-auto p-5 bg-search-background bg-cover bg-center bg-no-repeat">
       <h1 className="font-semibold text-2xl text-primaryDarker text-center">
         Encontre sua próxima <span className='text-primary'>viagem!</span>
       </h1>
@@ -15,8 +15,8 @@ function TripSearch() {
         <Input placeholder='Onde você quer ir?' />
 
         <div className='flex gap-4'>
-          <DatePicker placeholderText='Data de ida' onChange={() =>{}} className='w-full'/>
-          <CurrencyInput placeholder='Orçamento'/>
+          <DatePicker placeholderText='Data de ida' onChange={() =>{}} className='w-full' />
+          <CurrencyInput placeholder='Orçamento' className='w-full' />
         </div>
 
         <Button>Buscar</Button>
