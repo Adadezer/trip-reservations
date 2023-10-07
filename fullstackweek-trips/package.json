@@ -14,6 +14,7 @@
     "next": "latest",
     "next-auth": "^4.23.2",
     "react": "latest",
+    "react-datepicker": "^4.18.0",
     "react-dom": "latest",
     "react-icons": "^4.11.0",
     "tailwind-merge": "^1.14.0"
@@ -21,6 +22,7 @@
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
+    "@types/react-datepicker": "^4.15.1",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
     "eslint": "latest",
