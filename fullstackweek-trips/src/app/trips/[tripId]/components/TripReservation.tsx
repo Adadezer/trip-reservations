@@ -6,11 +6,11 @@ import Input from '@/components/Input'
 import { Trip } from '@prisma/client'
 import React from 'react'
 
-interface TripReservation {
+interface TripReservationProps {
   trip: Trip
 }
 
-function TripReservation({trip}: TripReservation) {
+function TripReservation({trip}: TripReservationProps) {
   return (
     <div className='flex flex-col px-5'>
       <div className='flex gap-4'>
