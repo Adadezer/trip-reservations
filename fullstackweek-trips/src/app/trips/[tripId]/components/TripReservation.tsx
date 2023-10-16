@@ -8,7 +8,9 @@ import React from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
 interface TripReservationProps {
-  trip: Trip
+  tripStartDate: Date;
+  tripEndDate: Date;
+  maxGuests: number;
 }
 
 interface TripReservationForm {
@@ -17,12 +19,14 @@ interface TripReservationForm {
   endDate: Date | null;
 }
 
-function TripReservation({trip}: TripReservationProps) {
-  const {register, handleSubmit, formState: {errors}, control} = useForm<TripReservationForm>();
+function TripReservation({tripStartDate, tripEndDate, maxGuests}: TripReservationProps) {
+  const {register, handleSubmit, formState: {errors}, control, watch} = useForm<TripReservationForm>();
 
   const onSubmit = (data: any) => {
     console.log(data);
   }
+
+  const startDate = watch('startDate')
 
   return (
     <div className='flex flex-col px-5'>
@@ -39,6 +43,7 @@ function TripReservation({trip}: TripReservationProps) {
               selected={field.value}
               placeholderText='Data de ida'
               className='w-full'
+              minDate={tripStartDate}
             />
           )}
         />
@@ -55,6 +60,8 @@ function TripReservation({trip}: TripReservationProps) {
               selected={field.value}
               placeholderText='Data final'
               className='w-full'
+              maxDate={tripEndDate}
+              minDate={startDate ?? tripStartDate}
             />
           )}
         />
@@ -62,7 +69,7 @@ function TripReservation({trip}: TripReservationProps) {
 
       <Input
         {...register('guests', {required: {value: true, message: 'Número de hóspedes é obrigatório'}})}
-        placeholder={`Número de hóspedes (máx: ${trip.maxGuests})`}
+        placeholder={`Número de hóspedes (máx: ${maxGuests})`}
         className='mt-4'
         error={!!errors?.guests}
         errorMessage={errors?.guests?.message}
