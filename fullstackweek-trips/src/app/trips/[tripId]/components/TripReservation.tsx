@@ -8,6 +8,7 @@ import React from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
 interface TripReservationProps {
+  tripId: string;
   tripStartDate: Date;
   tripEndDate: Date;
   maxGuests: number;
@@ -20,11 +21,21 @@ interface TripReservationForm {
   endDate: Date | null;
 }
 
-function TripReservation({tripStartDate, tripEndDate, maxGuests, pricePerDay}: TripReservationProps) {
+function TripReservation({tripId, tripStartDate, tripEndDate, maxGuests, pricePerDay}: TripReservationProps) {
   const {register, handleSubmit, formState: {errors}, control, watch} = useForm<TripReservationForm>();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = async (data: TripReservationForm) => {
+    const response = await fetch('http://localhost:3000/api/trips/check', {
+      method: 'POST',
+      body: Buffer.from(JSON.stringify({
+        startDate: data.startDate,
+        endDate: data.endDate,
+        tripId,
+      }))
+    })
+
+    const res = await response.json();
+    console.log(res);
   }
 
   const startDate = watch('startDate');
