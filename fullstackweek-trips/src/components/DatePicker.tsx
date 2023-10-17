@@ -1,5 +1,6 @@
 // código copiado do tutorial
 // biblioteca react-datepicker 'https://www.npmjs.com/package/react-datepicker?activeTab=readme'
+// biblioteca de datas 'https://date-fns.org/'
 import { LegacyRef, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 import _DatePicker, { ReactDatePickerProps, registerLocale } from "react-datepicker";
