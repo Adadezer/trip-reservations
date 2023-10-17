@@ -35,7 +35,8 @@ function TripReservation({tripId, tripStartDate, tripEndDate, maxGuests, pricePe
     })
 
     const res = await response.json();
-    console.log(res);
+    // console.log(res);
+    console.log({res});
   }
 
   const startDate = watch('startDate');
