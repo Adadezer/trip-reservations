@@ -1,9 +1,53 @@
 import { prisma } from "@/lib/prisma";
-// import { isBefore } from "date-fns";
+import { isBefore } from "date-fns";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const req = await request.json();
+
+  const trip = await prisma.trip.findUnique({
+    where: {
+      id: req.tripId,
+    }
+  });
+
+  if (!trip) {
+    return new NextResponse(
+      JSON.stringify(
+        {
+          error: { code: 'TRIP_NOT_FOUND'},
+        }
+      ),
+    );
+  }
+
+  // se data de inicio recebida for menor que a data de inicio da viagem, que está no banco (seed.ts), retorne um erro
+  if (isBefore(new Date(req.startDate), new Date(trip.startDate))) {
+    return new NextResponse(
+      JSON.stringify(
+        {
+          error: { code: 'INVALID_START_DATE'},
+        }
+      ),
+      {
+        status: 400,
+      }  
+    );
+  }
+
+  // data de fim recebida precisa ser menor ou igual a data de fim da viagem, que está no banco (seed.ts)
+  if (isBefore(new Date(trip.endDate), new Date(req.endDate))) {
+    return new NextResponse(
+      JSON.stringify(
+        {
+          error: { code: 'INVALID_END_DATE'},
+        }
+      ),
+      {
+        status: 400,
+      }  
+    );
+  }
 
   const reservations = await prisma.tripReservation.findMany({
     where: {
