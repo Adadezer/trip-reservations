@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+// import { isBefore } from "date-fns";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
@@ -9,17 +10,17 @@ export async function POST(request: Request) {
       tripId: req.tripId,
       // VERIFICA SE EXISTE RESERVA ENTRE AS DATAS
       startDate: {lte: new Date(req.endDate)},
-      endDate: {gte: new Date(req.startDate)}
+      endDate: {gte: new Date(req.startDate)},
     }
   })
 
   if (reservations.length > 0) {
     return new NextResponse(JSON.stringify({
-      error: {code: 'TRIP_ALREADY_RESERVED'}
+      error: {code: 'TRIP_ALREADY_RESERVED'},
     }))
   }
 
   return new NextResponse(JSON.stringify({
-    success: true
-  }))
+    success: true,
+  }));
 }
