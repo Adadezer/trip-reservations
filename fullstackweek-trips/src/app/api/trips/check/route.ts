@@ -66,5 +66,6 @@ export async function POST(request: Request) {
 
   return new NextResponse(JSON.stringify({
     success: true,
+    trip,
   }));
 }
