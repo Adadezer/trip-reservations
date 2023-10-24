@@ -1,4 +1,4 @@
-// código copiado do tutorial, usando biblioteca externa
+// componente pronto da internet, usando biblioteca externa
 import _CurrencyInput, { CurrencyInputProps } from "react-currency-input-field";
 import { twMerge } from "tailwind-merge";
 

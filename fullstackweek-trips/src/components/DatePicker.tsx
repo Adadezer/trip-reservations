@@ -1,4 +1,4 @@
-// código copiado do tutorial
+// componente pronto da internet
 // biblioteca react-datepicker 'https://www.npmjs.com/package/react-datepicker?activeTab=readme'
 // biblioteca de datas 'https://date-fns.org/'
 import { LegacyRef, forwardRef } from "react";
