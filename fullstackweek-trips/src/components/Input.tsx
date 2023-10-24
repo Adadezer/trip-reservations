@@ -1,4 +1,4 @@
-// código copiado do tutorial
+// componente pronto da internet
 import { ComponentPropsWithoutRef, LegacyRef, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
