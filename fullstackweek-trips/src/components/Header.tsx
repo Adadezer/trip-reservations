@@ -8,12 +8,16 @@ import {AiOutlineMenu} from 'react-icons/ai'
 
 function Header() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+
   const {status, data} = useSession();
+  
   const handleLoginClick = () => signIn();
+  
   const handleLogoutClick = () => {
     setMenuIsOpen(false);
     signOut();
   }
+
   const handleMenuClick = () => setMenuIsOpen(!menuIsOpen);
 
   return (
@@ -27,10 +31,7 @@ function Header() {
       {status === 'unauthenticated' &&
         (
           <div className='bg-white rounded-full p-3 px-5 border border-grayLighter shadow-md flex flex-col justify-center items-center'>
-            <button
-              className='text-primary text-sm font-semibold'
-              onClick={handleLoginClick}
-            >
+            <button className='text-primary text-sm font-semibold' onClick={handleLoginClick}>
               Login
             </button>
           </div>
@@ -50,13 +51,16 @@ function Header() {
           />
 
           {menuIsOpen && (
-            <div className='z-50 absolute top-14 left-0 w-full h-full bg-white rounded-full shadow-md flex flex-col justify-center items-center'>
-              <button
-                className='text-primary text-sm font-semibold'
-                onClick={handleLogoutClick}
-                >
-                  Logout
-                </button>
+            <div className='z-50 absolute top-14 left-0 w-full h-[100px] bg-white rounded-lg shadow-md flex flex-col justify-center items-center'>
+              <Link href={'/my-trips'}>
+                <button className='text-primary pb-2 border-b border-grayLighter border-solid text-sm font-semibold mx-2'>
+                  Minhas viagens
+                </button>             
+              </Link>
+
+              <button className='text-primary text-sm font-semibold mt-2' onClick={handleLogoutClick}>
+                Logout
+              </button>
             </div>
           )}
         </div>
