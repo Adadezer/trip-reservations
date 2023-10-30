@@ -11,5 +11,5 @@ a aplicação foi desenvolvida para novembro de 2023, caso você esteja testando
 faça o seguinte:
 -Digite no terminal o comando `npx prisma studio`, na tabela que aparecer clique na opção `trip`. Irá aparecer todas as viagens no banco, exclua as data antigas selecionando-as e clicando no botão deletar acima da tabela
 encontre o arquivo `seed.ts` em `src/lib/seed.ts`.
--Mude o mês e ano das datas iniciais e finais em todas as viagens para o mês e ano que você está
+-Mude o mês e ano das datas iniciais e finais em todas as viagens para o ano que você está, e o mês para o posterior ao que você está 
 -Digite no terminal o comando `npx prisma db seed`, esse comando irá gerar novas viagens no banco de dados
