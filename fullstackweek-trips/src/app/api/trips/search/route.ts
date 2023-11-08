@@ -37,8 +37,6 @@ const generateSearchQuery = (text: string, startDate?: string | null, budget?: s
     };
   }
 
-  console.log({ startDate });
-
   if (budget !== "undefined" && budget !== "null") {
     searchQuery = {
       ...searchQuery,

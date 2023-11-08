@@ -1,6 +1,8 @@
 'use client'
+
 import Button from '@/components/Button';
 import { Trip } from '@prisma/client';
+import { loadStripe } from '@stripe/stripe-js';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { useSession } from 'next-auth/react';
@@ -17,7 +19,7 @@ function TripConfirmation({params}: {params: {tripId: string}}) {
 
   const router = useRouter();
   
-  const { status, data } = useSession();
+  const { status } = useSession();
 
   const searchParams = useSearchParams();
   
@@ -52,7 +54,7 @@ function TripConfirmation({params}: {params: {tripId: string}}) {
   if (!trip) return null;
 
   const handleBuyClick = async () => {
-    const res = await fetch("http://localhost:3000/api/trips/reservation", {
+    const res = await fetch("http://localhost:3000/api/payment", {
       method: "POST",
       body: Buffer.from(
         JSON.stringify({
@@ -60,8 +62,10 @@ function TripConfirmation({params}: {params: {tripId: string}}) {
           startDate: searchParams.get("startDate"),
           endDate: searchParams.get("endDate"),
           guests: Number(searchParams.get("guests")),
-          userId: (data?.user as any)?.id!,
-          totalPaid: totalPrice,
+          totalPrice,
+          coverImage: trip.coverImage,
+          name: trip.name,
+          description: trip.description
         })
       ),
     });
@@ -70,7 +74,12 @@ function TripConfirmation({params}: {params: {tripId: string}}) {
       toast.error('Ocorreu um erro ao realizar a reserva', { position: 'top-center' });
     }
 
-    router.push('/');
+    const {sessionId} = await res.json();
+
+    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY as string);
+
+    await stripe?.redirectToCheckout({sessionId});
+    // router.push('/');
     toast.success('Reserva realizada com sucesso!', { position: 'top-center' });
   };
 
