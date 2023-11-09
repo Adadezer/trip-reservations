@@ -32,7 +32,7 @@ async function Trips() {
       <h2 className="text-grayPrimary font-medium mb-5">
         {trips.length > 0
           ? "Listamos as melhores viagens pra você!"
-          : "Não encontramos nada nos seus parâmetros! =("
+          : "Nenhum resultado encontrado de acordo com sua pesquisa! =("
         }
       </h2>
 
