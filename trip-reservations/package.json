@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "fullstackweek-trips/next dev",
-    "build": "fullstackweek-trips/next build",
-    "start": "fullstackweek-trips/next start",
-    "lint": "fullstackweek-trips/next lint",
-    "stripe:listen": "fullstackweek-trips/stripe listen --forward-to localhost:3000/api/payment/success",
-    "postinstall": "fullstackweek-trips/npx prisma generate"
+    "dev": "./fullstackweek-trips/next dev",
+    "build": "./fullstackweek-trips/next build",
+    "start": "./fullstackweek-trips/next start",
+    "lint": "./fullstackweek-trips/next lint",
+    "stripe:listen": "./fullstackweek-trips/stripe listen --forward-to localhost:3000/api/payment/success",
+    "postinstall": "./fullstackweek-trips/npx prisma generate"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} --transpile-only src/lib/seed.ts"
