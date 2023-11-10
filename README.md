@@ -1,31 +1,36 @@
-# TripReservations
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Figma: https://www.figma.com/file/gWRHt9TxdTLQxo5Np7yAaq/FSW-Project-%5BLive%5D?type=design&node-id=0%3A1&mode=design&t=ohQv59Gxt1KBkEBt-1
+## Getting Started
 
-------------------------
-### O diagrama do sistema de reservas pode ser aberto com o site `https://app.diagrams.net/`
+First, run the development server:
 
-------------------------
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-#### https://github.com/felipemotarocha/fullstackweek-trips
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-------------------------
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-#### caso não consiga fazer uma busca ou reservar uma viagem:
-a aplicação foi desenvolvida para novembro de 2023, caso você esteja testando o código depois de 11/23
-faça o seguinte:
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
--Digite no terminal o comando `npx prisma studio`, na tabela que aparecer clique na opção `trip`. Irá aparecer todas as viagens no banco, exclua as datas antigas, para isso, selecione-as e clique no botão deletar, acima da tabela.
+## Learn More
 
--Encontre o arquivo `seed.ts` em `src/lib/seed.ts`.
+To learn more about Next.js, take a look at the following resources:
 
--Mude o mês e ano das datas iniciais e finais em todas as viagens para o ano que você está, e o mês, para o posterior ao que você está.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
--Digite no terminal o comando `npx prisma db seed`, esse comando irá gerar novas viagens no banco de dados.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-------------------------
+## Deploy on Vercel
 
-#### Por enquanto a API de pagamento roda localmente.
--Digite no terminal o comando `npm run stripe:listen` para executar o serviço de pagamento do stripe e poder reservar a viagem
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
