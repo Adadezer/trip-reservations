@@ -12,7 +12,7 @@ function TripHighlights({highlights}: TripHighlightProps) {
     
     <div className='flex flex-wrap gap-y-3'>
       {highlights.map((highlight) => (
-        <div className='flex items-center gap-2 w-1/2'>
+        <div key={highlight} className='flex items-center gap-2 w-1/2'>
           <Image src='/check-icon.png' width={15} height={15} alt={`imagem ${highlight}`} />
           <p className='text-grayPrimary text-xs'>{highlight}</p>
         </div>
