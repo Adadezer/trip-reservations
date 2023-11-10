@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "stripe:listen": "stripe listen --forward-to localhost:3000/api/payment/success",
-    "postinstall": "npx prisma generate",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build"
+    "dev": "fullstackweek-trips/next dev",
+    "build": "fullstackweek-trips/next build",
+    "start": "fullstackweek-trips/next start",
+    "lint": "fullstackweek-trips/next lint",
+    "stripe:listen": "fullstackweek-trips/stripe listen --forward-to localhost:3000/api/payment/success",
+    "postinstall": "fullstackweek-trips/npx prisma generate"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} --transpile-only src/lib/seed.ts"
