@@ -89,21 +89,28 @@ function TripReservation({tripId, tripStartDate, tripEndDate, maxGuests, pricePe
   const endDate = watch('endDate')
 
   return (
-    <div className="flex flex-col px-5">
+    <div className="flex flex-col px-5 lg:min-w-[380px] lg:p-5 lg:border-grayLighter lg:border lg:rounded-lg lg:shadow-md">
+      <p className="text-xl hidden text-primaryDarker mb-4 lg:block">
+        <span className="font-semibold">R${pricePerDay}</span> por dia
+      </p>
+
       <div className="flex gap-4">
         <Controller
           name="startDate"
           rules={{
-            required: { value: true, message: "Data inicial é obrigatória" },
+            required: {
+              value: true,
+              message: "Data inicial é obrigatória.",
+            },
           }}
           control={control}
           render={({ field }) => (
             <DatePicker
               error={!!errors?.startDate}
-              errorMessage={errors.startDate?.message}
+              errorMessage={errors?.startDate?.message}
               onChange={field.onChange}
               selected={field.value}
-              placeholderText="Data de ida"
+              placeholderText="Data de Início"
               className="w-full"
               minDate={tripStartDate}
             />
@@ -113,16 +120,19 @@ function TripReservation({tripId, tripStartDate, tripEndDate, maxGuests, pricePe
         <Controller
           name="endDate"
           rules={{
-            required: { value: true, message: "Data final é obrigatória" },
+            required: {
+              value: true,
+              message: "Data final é obrigatória.",
+            },
           }}
           control={control}
           render={({ field }) => (
             <DatePicker
               error={!!errors?.endDate}
-              errorMessage={errors.endDate?.message}
+              errorMessage={errors?.endDate?.message}
               onChange={field.onChange}
               selected={field.value}
-              placeholderText="Data final"
+              placeholderText="Data Final"
               className="w-full"
               maxDate={tripEndDate}
               minDate={startDate ?? tripStartDate}
@@ -135,30 +145,28 @@ function TripReservation({tripId, tripStartDate, tripEndDate, maxGuests, pricePe
         {...register("guests", {
           required: {
             value: true,
-            message: "Número de hóspedes é obrigatório",
+            message: "Número de hóspedes é obrigatório.",
           },
           max: {
             value: maxGuests,
-            message: `Número de hóspedes não pode ser maior que ${maxGuests}`,
+            message: `Número de hóspedes não pode ser maior que ${maxGuests}.`,
           },
         })}
-        placeholder={`Número de hóspedes (máx: ${maxGuests})`}
+        placeholder={`Número de hóspedes (max: ${maxGuests})`}
         className="mt-4"
         error={!!errors?.guests}
         errorMessage={errors?.guests?.message}
-        type='number'
+        type="number"
       />
 
       <div className="flex justify-between mt-3">
-        <p className="font-medium text-sm text-primaryDarker">Total:</p>
+        <p className="font-medium text-sm text-primaryDarker">Total: </p>
         <p className="font-medium text-sm text-primaryDarker">
-          {startDate && endDate
-            ? `R$${differenceInDays(endDate, startDate) * pricePerDay}`
-            : "R$ 0"}
+          {startDate && endDate ? `R$${differenceInDays(endDate, startDate) * pricePerDay}` ?? 1 : "R$0"}
         </p>
       </div>
 
-      <div className="pb-10 border-b border-b-grayLighter w-full">
+      <div className="pb-10 border-b border-b-grayLighter w-full lg:border-none lg:pb-0">
         <Button onClick={() => handleSubmit(onSubmit)()} className="mt-3 w-full">
           Reservar agora
         </Button>
