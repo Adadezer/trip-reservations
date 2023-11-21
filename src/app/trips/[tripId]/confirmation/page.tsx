@@ -49,7 +49,7 @@ function TripConfirmation({params}: {params: {tripId: string}}) {
     }
 
     fetchTrip()
-  }, [status]);
+  }, [params.tripId, router, searchParams, status]);
 
   if (!trip) return null;
 
