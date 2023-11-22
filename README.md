@@ -2,6 +2,7 @@
 
 ## 🌎 O que é a Aplicação
 É um site de reserva de viagens desenvolvido durante a semana de programação "Fullstack Week", nele é possível buscar uma viagem, seja por localização, data, ou orçamento. Ver detalhes dessa viagem com fotos, destaques, preço por noite, data e hóspedes. 
+
 Na aplicação também é possível reservar viagens de hotel, fazendas, e pousadas, escolhendo datas e valores, cancelar a viagem escolhida, simular o pagamento da viagem e logar com sua própria conta do google.
 
 ## 💻 Tecnologias Utilizadas
@@ -16,6 +17,7 @@ Na aplicação também é possível reservar viagens de hotel, fazendas, e pousa
 
 ## ⚙️ Como Utilizar
 Você pode acessar a aplicação [clicando nesse link.](https://trip-reservations.vercel.app/) 
+
 Obs: Clique com o botão direito do mouse, depois em `abrir em uma nova guia`, ou segure `Ctrl` e clique no link para abrir a página em outra guia, e não sair da página deste repositório.
 
 Faça login para reservar uma viagem.
