@@ -16,38 +16,38 @@ Na aplicação também é possível reservar viagens de hotel, fazendas, e pousa
 - NextAuth
 
 ## ⚙️ Como Utilizar
-Você pode acessar a aplicação [clicando nesse link.](https://trip-reservations.vercel.app/) 
+
+ - Você pode acessar a aplicação [clicando nesse link.](https://trip-reservations.vercel.app/) 
 
 Obs¹: Caso tenho problemas em fazer login, ou utilizar o site, dê uma olhada nas `📌 Considerações` no final da página.
 
 Obs²: Clique com o botão direito do mouse, depois em `abrir em uma nova guia`, ou segure `Ctrl` e clique no link para abrir a página em outra guia, e não sair da página deste repositório.
 
-Faça login para reservar uma viagem.
+ - Faça login para reservar uma viagem.
+ 
+ - Na hora de pagar a viagem escolhida utilize esse número de cartão `4242 4242 4242 4242`, esse é o número do cartão de teste, com ele você não será cobrado de nada (não se preocupe rsrs), o resto das informações podem ser fictícias.
 
-Na hora de pagar a viagem escolhida utilize esse número de cartão `4242 4242 4242 4242`, esse é o número do cartão de teste, com ele você não será cobrado de nada (não se preocupe rsrs), o resto das informações podem ser fictícias.
-
+## 🏠 Executando localmente
 Caso queira clonar o repositório e rodar ele localmente, siga esses passos:
 
-1. Abra o terminal, clone o repositório do github e entre na pasta do projeto:
+ 1. Abra o terminal, clone o repositório do github e entre na pasta do projeto:
 	 - `git clone https://github.com/Adadezer/trip-reservations.git` ou `git clone git@github.com:Adadezer/trip-reservations.git`
 	 - `cd trip-reservations`
 	 
-2. Instale as dependências do projeto:
+ 2. Instale as dependências do projeto:
 	 - `npm install`
 
-3- A aplicação usa o postgresql como banco de dados, crie um banco de dados com qualquer nome ('tripReservations' por exemplo) no postgresql.
-
-4- Configure a variável de ambiente:
-
-- Com o banco de dados criado, crie na pasta raiz do projeto um arquivo `.env` e coloque as informações do seu banco de dados na variável DATABASE_URL:
-> DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
-
-Na pasta existe um arquivo chamado `.env.example` com um exemplo de como deve ser preenchido.
-
-5- Execute o comando `npx prisma migrate reset` para o banco de dados ser populado automaticamente com informações de locais de viagens fictícios. Logo após executar o comando, uma mensagem de confirmação será exibida, dizendo que o banco de dados será resetado e as informações contidas nele serão perdidas, escolha sim para continuar.
-
-Obs: Como o banco acabou de ser criado e está vazio, não tem problema realizar esse passo, caso o comando seja executado novamente, os dados serão perdidos.
+ 3.  A aplicação usa o postgresql como banco de dados, crie um banco de dados com qualquer nome ('tripReservations' por exemplo) no postgresql.
  
+ 4. Configure a variável de ambiente:
+	-  Com o banco de dados criado, crie na pasta raiz do projeto um arquivo `.env` e coloque as informações do seu banco de dados na variável DATABASE_URL:
+	> DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
+	
+	- Na pasta existe um arquivo chamado `.env.example` com um exemplo de como deve ser preenchido.
+
+ 5. Execute o comando `npx prisma migrate reset` para o banco de dados ser populado automaticamente com informações de locais de viagens fictícios. Logo após executar o comando, uma mensagem de confirmação será exibida, dizendo que o banco de dados será resetado e as informações contidas nele serão perdidas, escolha sim para continuar.
+Obs: Como o banco acabou de ser criado e está vazio, não tem problema realizar esse passo, caso o comando seja executado novamente, os dados serão perdidos.
+
 6. Execute o projeto:
 	- `npm run dev`
 
