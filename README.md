@@ -16,6 +16,8 @@ Na aplicação também é possível reservar viagens de hotel, fazendas, e pousa
 - NextAuth
 
 ## ⚙️ Como Utilizar
+Demonstração da aplicação
+![](https://github.com/Adadezer/trip-reservations/blob/main/demo_TripReservations.gif)
 
  - Você pode acessar a aplicação [clicando nesse link.](https://trip-reservations.vercel.app/) 
 
