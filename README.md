@@ -59,7 +59,7 @@ Obs: Como o banco acabou de ser criado e está vazio, não tem problema realizar
 
 - O projeto está hospedado em um servidor gratuito, e tem um limite de tempo onde ele fica online, caso tenha problemas para logar, ou navegar entre as páginas, rode o projeto localmente, ou me mande uma mensagem no [linkedin](https://www.linkedin.com/in/adadezer-iwazaki/), ou no email `adadezer@gmail.com` e terei o maior prazer em restaurá-lo para você poder vê-lo funcionando.
 
-- A aplicação foi desenvolvida para dezembro de 2023, e a data das reservas de viagens foram configuradas para esse mês, caso não consiga fazer uma busca ou reservar uma viagem, faça a reserva escolhendo uma data no mês 12/23. Ou me mande uma mensagem no [linkedin](https://www.linkedin.com/in/adadezer-iwazaki/), ou no email `adadezer@gmail.com` que terei o maior prazer em mudar as datas para você poder reservar suas viagens.
+- Assim como em qualquer site, as viagens tem data para serem reservadas, caso não consiga fazer uma busca ou reservar uma viagem, faça a reserva escolhendo uma data no mês 12/23. Ou me mande uma mensagem no [linkedin](https://www.linkedin.com/in/adadezer-iwazaki/), ou no email `adadezer@gmail.com` que terei o maior prazer em mudar as datas para você poder reservar suas viagens.
 
  - Caso queira ver o protótipo no figma [clique aqui.](https://www.figma.com/file/gWRHt9TxdTLQxo5Np7yAaq/FSW-Project-%5BLive%5D?type=design&node-id=0:1&mode=design&t=ohQv59Gxt1KBkEBt-1)
  Obs: Clique com o botão direito do mouse, depois em `abrir em uma nova guia`, ou segure `Ctrl` e clique no link para abrir a página em outra guia, e não sair da página deste repositório.
