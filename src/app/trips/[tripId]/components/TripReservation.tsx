@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
-import Button from '@/components/Button'
-import DatePicker from '@/components/DatePicker'
-import Input from '@/components/Input'
-import { differenceInDays } from 'date-fns'
-import { useRouter } from 'next/navigation'
-import React from 'react'
-import { Controller, useForm } from 'react-hook-form'
+import Button from "@/components/Button";
+import DatePicker from "@/components/DatePicker";
+import Input from "@/components/Input";
+import { differenceInDays } from "date-fns";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { Controller, useForm } from "react-hook-form";
 
 interface TripReservationProps {
   tripId: string;
@@ -22,71 +22,74 @@ interface TripReservationForm {
   endDate: Date | null;
 }
 
-function TripReservation({tripId, tripStartDate, tripEndDate, maxGuests, pricePerDay}: TripReservationProps) {
+function TripReservation({
+  tripId,
+  tripStartDate,
+  tripEndDate,
+  maxGuests,
+  pricePerDay,
+}: TripReservationProps) {
   const {
     register,
     handleSubmit,
-    formState: {errors},
+    formState: { errors },
     control,
     watch,
     setError,
   } = useForm<TripReservationForm>();
 
-  const router = useRouter()
+  const router = useRouter();
 
   const onSubmit = async (data: TripReservationForm) => {
-    const response = await fetch('/api/trips/check', {
-      method: 'POST',
-      body: Buffer.from(JSON.stringify({
+    const response = await fetch("/api/trips/check", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
         startDate: data.startDate,
         endDate: data.endDate,
         tripId,
-      }))
-    })
+      }),
+    });
 
     const res = await response.json();
-    
-    if (res?.error?.code === 'TRIP_ALREADY_RESERVED') {
-      setError('startDate', {
-        type: 'manual',
-        message: 'Esta data já está reservada.',
+
+    if (res?.error?.code === "TRIP_ALREADY_RESERVED") {
+      setError("startDate", {
+        type: "manual",
+        message: "Esta data já está reservada.",
       });
 
-      return setError('endDate', {
-        type: 'manual',
-        message: 'Esta data já está reservada.',
-      });
-    }
-
-    if (res?.error?.code === 'INVALID_START_DATE') {
-      return setError('startDate', {
-        type: 'manual',
-        message: 'Data inválida',
+      return setError("endDate", {
+        type: "manual",
+        message: "Esta data já está reservada.",
       });
     }
 
-    if (res?.error?.code === 'INVALID_END_DATE') {
-      return setError('endDate', {
-        type: 'manual',
-        message: 'Data inválida',
+    if (res?.error?.code === "INVALID_START_DATE") {
+      return setError("startDate", {
+        type: "manual",
+        message: "Data inválida",
+      });
+    }
+
+    if (res?.error?.code === "INVALID_END_DATE") {
+      return setError("endDate", {
+        type: "manual",
+        message: "Data inválida",
       });
     }
 
     router.push(
-      `/trips/${
-        tripId
-      }/confirmation?startDate=${
-        data.startDate?.toISOString()
-      }&endDate=${
-        data.endDate?.toDateString()
-      }&guests=${
+      `/trips/${tripId}/confirmation?startDate=${data.startDate?.toISOString()}&endDate=${data.endDate?.toDateString()}&guests=${
         data.guests
       }`
     );
-  }
+  };
 
-  const startDate = watch('startDate');
-  const endDate = watch('endDate')
+  const startDate = watch("startDate");
+  const endDate = watch("endDate");
 
   return (
     <div className="flex flex-col px-5 lg:min-w-[380px] lg:p-5 lg:border-grayLighter lg:border lg:rounded-lg lg:shadow-md">
@@ -162,12 +165,17 @@ function TripReservation({tripId, tripStartDate, tripEndDate, maxGuests, pricePe
       <div className="flex justify-between mt-3">
         <p className="font-medium text-sm text-primaryDarker">Total: </p>
         <p className="font-medium text-sm text-primaryDarker">
-          {startDate && endDate ? `R$${differenceInDays(endDate, startDate) * pricePerDay}` ?? 1 : "R$0"}
+          {startDate && endDate
+            ? `R$${differenceInDays(endDate, startDate) * pricePerDay}`
+            : "R$0"}
         </p>
       </div>
 
       <div className="pb-10 border-b border-b-grayLighter w-full lg:border-none lg:pb-0">
-        <Button onClick={() => handleSubmit(onSubmit)()} className="mt-3 w-full">
+        <Button
+          onClick={() => handleSubmit(onSubmit)()}
+          className="mt-3 w-full"
+        >
           Reservar agora
         </Button>
       </div>
@@ -175,4 +183,4 @@ function TripReservation({tripId, tripStartDate, tripEndDate, maxGuests, pricePe
   );
 }
 
-export default TripReservation
+export default TripReservation;
